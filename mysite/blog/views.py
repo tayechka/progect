@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post
+from .forms import CommentForm
+from django.views.decorators.http import require_POST
 
 
 def post_list(request):
@@ -16,12 +18,6 @@ def post_detail(request, id):
     return render(request,
                   'blog/post/detail.html',
                   {'post': post})
-
-
-from django.shortcuts import render, get_object_or_404
-from .models import Post
-from .forms import CommentForm
-from django.views.decorators.http import require_POST
 
 
 def post_detail(request, id):
